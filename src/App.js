@@ -6,10 +6,10 @@ import ThreeIdiots from './public/three-idiots';
 
 class App extends Component {
 
-    output = 'Prueba';
+    state = {output : 'Prueba'};
 
-    onNumberInputHandler = () => {
-        ThreeIdiots('1234');
+    onNumberInputHandler = (event) => {
+        this.setState({output : ThreeIdiots(event.target.value)});
     };
 
     render() {
@@ -19,9 +19,9 @@ class App extends Component {
               <img src={logo} className="App-logo" alt="logo" />
               <h1 className="App-title">Welcome to React</h1>
             </header>
-            <NumberInput />
+            <NumberInput textChanged={(event) => this.onNumberInputHandler(event)} />
               <p/>
-              {this.output}
+              {this.state.output}
           </div>
         );
   }

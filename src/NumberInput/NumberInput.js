@@ -6,7 +6,7 @@ const numberInput = (props) => {
     return (
         <div>
             <p>Input your number </p>
-            <input type="text" />
+            <input type="text" onChange={props.textChanged}/>
         </div>
     )
 };
